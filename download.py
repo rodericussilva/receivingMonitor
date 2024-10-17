@@ -18,7 +18,7 @@ service = Service(ChromeDriverManager().install())
 
 driver = webdriver.Chrome(service=service, options=options)
 
-url_sharepoint = 'https://tsdistribuidora.sharepoint.com/sites/GQ-GestodaQualidade/Lists/Compras/AllItems.aspx?viewid=284e5f6f-e513-499a-aa4c-2e60bfafe3e8&useFiltersInViewXml=1&env=WebViewList/'
+url_sharepoint = 'YourURL'
 driver.get(url_sharepoint)
 
 wait = WebDriverWait(driver, 60)
