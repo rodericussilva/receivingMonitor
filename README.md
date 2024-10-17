@@ -112,3 +112,6 @@ Contribuições são bem-vindas! Para contribuir:
 ## Licença
 
 Este projeto está licenciado sob a licença MIT. Consulte o arquivo `LICENSE` para mais detalhes.
+```
+Esse README inclui instruções para instalar as bibliotecas diretamente com o `pip`, sem depender de um arquivo `requirements.txt`. Lembre-se de ajustar os links e nomes conforme necessário para o seu repositório.
+```
