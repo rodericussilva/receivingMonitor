@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DOWNLOAD_FOLDER = "C:/Users/Admin/Downloads"
+DOWNLOAD_FOLDER = "C:/Users/YourUser/Downloads"
 
 def find_latest_csv():
     print("Procurando o arquivo CSV mais recente...")
@@ -42,7 +42,7 @@ def check_orders():
 
         df.columns = df.columns.str.strip()
 
-        required_columns = ['PEDIDO N° **', 'STATUS - COMPRA', 'DATA - EMISSÃO']
+        required_columns = ['NF Nº', 'STATUS - COMPRA', 'DATA - EMISSÃO']
         if not all(col in df.columns for col in required_columns):
             print(f"Colunas encontradas no arquivo: {df.columns.tolist()}")
             print("Colunas necessárias não encontradas no arquivo.")
@@ -59,23 +59,23 @@ def check_orders():
                 days_in_transit = (datetime.now() - issue_date).days
 
                 if 15 <= days_in_transit < 18:
-                    print(f"Enviando email para pedido {row['PEDIDO N° **']} em trânsito há {days_in_transit} dias.")
+                    print(f"Enviando email para pedido NF {row['NF Nº']} em trânsito há {days_in_transit} dias.")
                     send_email(
-                        subject=f"Alerta: Pedido {row['PEDIDO N° **']} em trânsito há {days_in_transit} dias",
-                        body=f'''O pedido {row['PEDIDO N° **']} está em trânsito há {days_in_transit} dias desde {row['DATA - EMISSÃO']}.
+                        subject=f"Alerta: Pedido NF {row['NF Nº']} em trânsito há {days_in_transit} dias",
+                        body=f'''O pedido NF {row['NF Nº']} está em trânsito há {days_in_transit} dias desde {row['DATA - EMISSÃO']}.
                         Email de alerta automático, favor não responder.
                         '''
                     )
                 elif days_in_transit == 18:
-                    print(f"Enviando email crítico para pedido {row['PEDIDO N° **']} em trânsito há {days_in_transit} dias.")
+                    print(f"Enviando email crítico para pedido NF {row['NF Nº']} em trânsito há {days_in_transit} dias.")
                     send_email(
-                        subject=f"Alerta Crítico: Pedido {row['PEDIDO N° **']} em trânsito por 18 dias",
-                        body=f'''O pedido {row['PEDIDO N° **']} permanece em trânsito desde {row['DATA - EMISSÃO']}. Verificar imediatamente.
+                        subject=f"Alerta Crítico: Pedido NF {row['NF Nº']} em trânsito por 18 dias",
+                        body=f'''O pedido NF {row['NF Nº']} permanece em trânsito desde {row['DATA - EMISSÃO']}. Verificar imediatamente.
                         Email de alerta automático, favor não responder.
                         '''
                     )
             except Exception as e:
-                print(f"Erro ao processar pedido {row['PEDIDO N° **']}: {e}")
+                print(f"Erro ao processar pedido NF {row['NF Nº']}: {e}")
 
     except Exception as e:
         print(f"Erro ao ler o arquivo CSV: {e}")
@@ -86,7 +86,7 @@ def send_email(subject, body):
     sender_email = os.getenv('sender_email')
     sender_password = os.getenv('sender_password')
 
-    recipients = ['user@email.com']
+    recipients = ['user@email.com', 'user@email.com]
 
     msg = MIMEMultipart()
     msg['From'] = sender_email
