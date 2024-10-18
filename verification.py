@@ -86,7 +86,7 @@ def send_email(subject, body):
     sender_email = os.getenv('sender_email')
     sender_password = os.getenv('sender_password')
 
-    recipients = ['user@email.com', 'user@email.com]
+    recipients = ['user@email.com', 'user@email.com']
 
     msg = MIMEMultipart()
     msg['From'] = sender_email
