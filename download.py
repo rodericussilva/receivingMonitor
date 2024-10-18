@@ -30,7 +30,7 @@ try:
     time.sleep(5)
 
     password_input = wait.until(EC.presence_of_element_located((By.NAME, "passwd")))
-    password_input.send_keys('***')
+    password_input.send_keys('yourPassword')
     password_input.send_keys(Keys.RETURN)
 
     wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="idSIButton9"]')))
