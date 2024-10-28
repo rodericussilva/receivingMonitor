@@ -74,7 +74,7 @@ Essas variáveis são usadas para enviar os e-mails de alerta.
 ## Como Executar
 
 1. **Configurar URL e Credenciais:**
-   - No arquivo `download.py`, substitua `'YourURL'` pela URL do SharePoint e `user@email.com.br` pelas credenciais de login.
+   - No arquivo `verification.py`, substitua `'YourURL'` pela URL do SharePoint e `user@email.com.br` pelas credenciais de login.
 
 2. **Executar o script principal:**
 
